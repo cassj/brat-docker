@@ -2,14 +2,10 @@ http://brat.nlplab.org/
 
 BRAT requires you to configure usernames and passwords. 
 
-The image generated from this Dockerfile, cassj/brat:1.3, has admin user:
+Run with 
 
-username: brat
-password: brat
+  docker run -i -t -p 80:80 -e BRAT_USERNAME=brat -e BRAT_PASSWORD=brat -e BRAT_EMAIL=brat@example.com  cassj/brat:1.3 /bin/bash
 
-You are welcome to use this image to try brat out. 
 
-If you want to use your own 
- 
 
 

@@ -14,13 +14,15 @@ RUN mkdir /var/www/brat
 RUN curl http://weaver.nlplab.org/~brat/releases/brat-v1.3_Crunchy_Frog.tar.gz > /var/www/brat/brat-v1.3_Crunchy_Frog.tar.gz 
 RUN cd /var/www/brat && tar -xvzf brat-v1.3_Crunchy_Frog.tar.gz
 
-# And configure it
-ADD config.py /var/www/brat/brat-v1.3_Crunchy_Frog
+ADD brat_install_wrapper.sh /usr/bin/brat_install_wrapper.sh
+RUN chmod +x /usr/bin/brat_install_wrapper.sh
+
+
+
+# Make sure apache can access it
+RUN chown -R www-data:www-data /var/www/brat/brat-v1.3_Crunchy_Frog/ 
 
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
-
-# Fix the ulimit issue 
-ADD limits.conf /etc/security/limits.conf
 
 # Enable cgi
 RUN a2enmod cgi
