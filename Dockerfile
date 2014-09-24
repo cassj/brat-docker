@@ -17,12 +17,16 @@ RUN cd /var/www/brat && tar -xvzf brat-v1.3_Crunchy_Frog.tar.gz
 # Create data and work directories - but link to the mount points for the local volumes
 RUN mkdir /bratdata
 RUN mkdir /bratconfig
-RUN chgrp -R www-data /bratdata
-RUN chgrp -R www-data /bratconfig
+RUN chown -R www-data /bratdata
+RUN chown -R www-data /bratconfig
 RUN chmod g+rwx /bratdata
 RUN chmod g+rwx /bratconfig
+RUN chmod o-rwx /bratdata
+RUN chmod o-rwx /bratconfig
 RUN ln -s /bratdata /var/www/brat/brat-v1.3_Crunchy_Frog/data
 RUN ln -s /bratconfig  /var/www/brat/brat-v1.3_Crunchy_Frog/config
+RUN usermod -a -G bratadmin www-data
+
 
 ADD brat_install_wrapper.sh /usr/bin/brat_install_wrapper.sh
 RUN chmod +x /usr/bin/brat_install_wrapper.sh
