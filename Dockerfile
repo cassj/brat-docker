@@ -25,7 +25,6 @@ RUN chmod o-rwx /bratdata
 RUN chmod o-rwx /bratconfig
 RUN ln -s /bratdata /var/www/brat/brat-v1.3_Crunchy_Frog/data
 RUN ln -s /bratconfig  /var/www/brat/brat-v1.3_Crunchy_Frog/config
-RUN usermod -a -G bratadmin www-data
 
 
 ADD brat_install_wrapper.sh /usr/bin/brat_install_wrapper.sh
