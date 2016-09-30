@@ -8,6 +8,8 @@ RUN apt-get install -y curl vim sudo wget rsync
 RUN apt-get install -y apache2
 RUN apt-get install -y python
 RUN apt-get install -y supervisor
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Fetch  brat
 RUN mkdir /var/www/brat
