@@ -51,5 +51,5 @@ and you can just copy the data into there from your host.
 
 To run the container you need to specify a username, password and email address for BRAT as environment variables when you start the container. This user will have editor permissions.
 ```bash
-$ docker run --name=brat -d -p 80:80 -v brat-data:/bratdatai brat-cfg:/bratcfg -e BRAT_USERNAME=brat -e BRAT_PASSWORD=brat -e BRAT_EMAIL=brat@example.com  cassj/brat
+$ docker run --name=brat -d -p 80:80 -v brat-data:/bratdata -v brat-cfg:/bratcfg -e BRAT_USERNAME=brat -e BRAT_PASSWORD=brat -e BRAT_EMAIL=brat@example.com cassj/brat
 ```
