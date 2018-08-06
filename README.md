@@ -1,3 +1,7 @@
+# NOTE
+
+I am no longer doing anything with brat and am not maintaining this at all. 
+
 # brat docker
 
 This is a docker container deploying an instance of [brat](http://brat.nlplab.org/).
